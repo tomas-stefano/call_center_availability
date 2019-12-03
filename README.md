@@ -4,6 +4,8 @@ Write a class or module which, when given a requested time for a
 pre-booked call, will give a response to say whether or not that is
 a valid time.
 
+The ruby version used in the exercise is 2.6.5.
+
 Setup:
 
     $ bundle
