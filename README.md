@@ -1,35 +1,58 @@
-# CallCenterAvailability
+# Call Center Availability
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/call_center_availability`. To experiment with that code, run `bin/console` for an interactive prompt.
+Write a class or module which, when given a requested time for a
+pre-booked call, will give a response to say whether or not that is
+a valid time.
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'call_center_availability'
-```
-
-And then execute:
+Setup:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install call_center_availability
-
 ## Usage
 
-TODO: Write usage instructions here
+To use the class you can instantiate passing the time and check with
+CallCenterAvailability#available? method.
 
-## Development
+You can play in irb:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```
+   $ irb -Ilib
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+   ## e.g case now is 04th December 2019 09:00
+   invalid_times = [
+     Time.now + 1.hour,
+     Time.now + 7.days,
+     Time.new(2019, 12, 8, 13),
+     Time.new(2019, 12, 7, 23)
+   ]
 
-## Contributing
+   ## e.g now is 04th December 2019 09:00
+   valid_times = [
+     Time.new(2019, 12, 6, 11),
+     Time.new(2019, 12, 7, 11)
+   ]
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/call_center_availability.
+   invalid_times.each do |invalid_time|
+     call_center = CallCenterAvailability.new(invalid_time)
+     puts "#{invalid_time} - #{call_center.available?}"
+   end
+
+   valid_times.each do |valid_time|
+     call_center = CallCenterAvailability.new(valid_time)
+     puts "#{valid_time} - #{call_center.available?}"
+   end
+```
+
+## Tests
+
+To run the tests:
+
+    $ rspec spec
+
+## Rubocop
+
+To run
+
+    $ rubocop
