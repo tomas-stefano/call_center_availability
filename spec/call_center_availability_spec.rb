@@ -21,6 +21,38 @@ RSpec.describe CallCenterAvailability do
         end
       end
 
+      context 'when is less than 2 hours current moment' do
+        before do
+          Timecop.freeze(Time.new(2019, 12, 4, 9, 30))
+        end
+
+        after do
+          Timecop.return
+        end
+
+        let(:time) { 2.hours.from_now - 1.minute }
+
+        it 'returns false' do
+          expect(call_center_availability).to_not be_available
+        end
+      end
+
+      context 'when is more than 2 hours from current moment' do
+        before do
+          Timecop.freeze(Time.new(2019, 12, 4, 9, 30))
+        end
+
+        after do
+          Timecop.return
+        end
+
+        let(:time) { 2.hours.from_now + 1.minute }
+
+        it 'returns false' do
+          expect(call_center_availability).to be_available
+        end
+      end
+
       context 'when is Saturday' do
         let(:time) { Time.new(2019, 12, 7, 12) }
 
