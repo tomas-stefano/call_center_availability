@@ -60,6 +60,22 @@ RSpec.describe CallCenterAvailability do
           expect(call_center_availability).to be_available
         end
       end
+
+      context 'when is less than six working days' do
+        let(:time) { Time.new(2019, 12, 11, 12, 30) }
+
+        it 'returns true' do
+          expect(call_center_availability).to be_available
+        end
+      end
+
+      context 'when is more than six working days' do
+        let(:time) { Time.new(2019, 12, 12, 12) }
+
+        it 'returns false' do
+          expect(call_center_availability).to_not be_available
+        end
+      end
     end
 
     context 'when is not operating hours' do

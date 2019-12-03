@@ -1,5 +1,6 @@
 require 'call_center_availability/version'
 require 'active_support/core_ext'
+require 'business_time'
 
 class CallCenterAvailability
   ## Sunday to Saturday
@@ -21,7 +22,9 @@ class CallCenterAvailability
   end
 
   def available?
-    operating_hours? && more_than_two_hours_in_the_future?
+    operating_hours? &&
+      more_than_two_hours_in_the_future? &&
+        less_than_six_working_days_in_the_future?
   end
 
   private
@@ -35,5 +38,9 @@ class CallCenterAvailability
 
   def more_than_two_hours_in_the_future?
     @time >= 2.hours.from_now
+  end
+
+  def less_than_six_working_days_in_the_future?
+    @time < 6.business_days.from_now
   end
 end
