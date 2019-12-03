@@ -1,4 +1,5 @@
 require 'bundler/setup'
+Bundler.require(:test)
 require 'call_center_availability'
 
 RSpec.configure do |config|

@@ -1,3 +1,3 @@
-module CallCenterAvailability
-  VERSION = "0.1.0"
+class CallCenterAvailability
+  VERSION = '0.1.0'
 end
