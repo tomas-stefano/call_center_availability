@@ -5,6 +5,7 @@ gem 'business_time'
 
 group :development do
   gem 'rubocop'
+  gem 'yard'
 end
 
 group :test do

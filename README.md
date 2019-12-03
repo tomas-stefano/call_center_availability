@@ -53,6 +53,13 @@ To run the tests:
 
 ## Rubocop
 
-To run
+To run the linter:
 
     $ rubocop
+
+## Documentation
+
+You can run the documentation and open by running:
+
+    $ yardoc 'lib/**/*.rb'
+    $ open doc/index.html
