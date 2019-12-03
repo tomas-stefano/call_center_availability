@@ -14,7 +14,7 @@ require 'business_time'
 #   ## e.g case now is 04th December 2019 09:00
 #   invalid_times = [
 #     Time.now + 1.hour,
-#     Time.now + 7.days,
+#     Time.now + 17.days,
 #     Time.new(2019, 12, 8, 13),
 #     Time.new(2019, 12, 7, 23)
 #   ]
