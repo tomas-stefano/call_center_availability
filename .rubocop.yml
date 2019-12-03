@@ -1,0 +1,47 @@
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 80
+Metrics/MethodLength:
+  Max: 15
+Metrics/ModuleLength:
+  Exclude:
+    - '**/**/*_spec.rb'
+Metrics/BlockLength:
+  Exclude:
+    - '**/**/*_spec.rb'
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+    - include
+    - prepend
+    - extend
+  ExpectedOrder:
+  - module_inclusion
+  - constants
+  - public_class_methods
+  - initializer
+  - public_methods
+  - protected_methods
+  - private_methods
+Layout/DotPosition:
+  EnforcedStyle: leading
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+Performance/RegexpMatch:
+  Enabled: false
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/CollectionMethods:
+  Enabled: false
+Style/FormatString:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+Style/NumericPredicate:
+  Enabled: false

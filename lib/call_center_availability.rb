@@ -47,7 +47,7 @@ class CallCenterAvailability
     ['09:00', '18:00'],
     ['09:00', '20:00'],
     ['09:00', '20:00'],
-    ['09:00', '12:30'],
+    ['09:00', '12:30']
   ].freeze
 
   # @param [Time] time Receives time of the pre booked call
@@ -66,7 +66,7 @@ class CallCenterAvailability
   def available?
     operating_hours? &&
       more_than_two_hours_in_the_future? &&
-        less_than_six_working_days_in_the_future?
+      less_than_six_working_days_in_the_future?
   end
 
   private
