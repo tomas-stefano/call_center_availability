@@ -1,5 +1,7 @@
 # Call Center Availability
 
+Reviewed today.
+
 Write a class or module which, when given a requested time for a
 pre-booked call, will give a response to say whether or not that is
 a valid time.
