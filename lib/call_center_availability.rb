@@ -64,12 +64,18 @@ class CallCenterAvailability
   #   the future and more than 6 working days in the future.
   ##
   def available?
+    return false if sunday?
+
     operating_hours? &&
       more_than_two_hours_in_the_future? &&
       less_than_six_working_days_in_the_future?
   end
 
   private
+
+  def sunday?
+    @weekday.zero?
+  end
 
   def operating_hours?
     @hour.between?(

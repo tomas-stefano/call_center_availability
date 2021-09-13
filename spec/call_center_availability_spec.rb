@@ -80,10 +80,20 @@ RSpec.describe CallCenterAvailability do
 
     context 'when is not operating hours' do
       context 'when is Sunday' do
-        let(:time) { Time.new(2019, 12, 8, 13) }
+        context 'when any hour' do
+          let(:time) { Time.new(2019, 12, 8, 13) }
 
-        it 'returns false' do
-          expect(call_center_availability).to_not be_available
+          it 'returns false' do
+            expect(call_center_availability).to_not be_available
+          end
+        end
+
+        context 'when is midnight' do
+          let(:time) { Time.new(2019, 12, 8, 0, 0) }
+
+          it 'returns false' do
+            expect(call_center_availability).to_not be_available
+          end
         end
       end
 
