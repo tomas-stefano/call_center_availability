@@ -1,5 +1,5 @@
 require 'call_center_availability/version'
-require 'active_support/core_ext'
+require 'active_support/all'
 require 'business_time'
 
 ## I was in doubt if I should change to CallCenter but both choices
